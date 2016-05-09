@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Github cards</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+	<link rel="stylesheet/less" type="text/css" href="css/style.less">
+<!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+	<div class="container">
+		<h2>Github cards</h2>
+		Sort By: <a href="#" id="sort-name">Name</a> : <a href="#" id="sort-loca">Location</a> : <a href="#" id="sort-fol">Followers</a> 
+		<br/>
+		<br/>
+		<div class="col-sm-4">
+			<input id="userName" type="text" class="form-control"/>
+		</div>
+		<div class="col-sm-2">
+			<input type="submit" id="id-add-user" class="btn btn-primary" title="Add" />
+		</div>
+		<div class="col-sm-12">
+			<hr>
+		</div>
+		<div class="row">
+			<br/>
+			<div class="col-sm-12" id="divUsers">
+			</div>
+		</div>
+	</div>
+	<script id="div-users" type="text/x-handlebars-template">
+	 {{#each userRecords}}
+		<div class="col-sm-3 divUser" id="{{login}}">
+			<span class="close"><a data-id="{{login}}" class="delete-user">&times;</a></span>
+			<div class="thumbnail">
+				<img src="{{avatar_url}}" alt="...">
+				<div class="caption">
+					{{#if name}}
+					<h3>{{name}}</h3>
+					{{else}}
+					<h3>No Name</h3>
+					{{/if}}
+					<p><strong>Location:</strong> {{location}}</p>
+					<p><strong>Followers:</strong> {{followers}}</p>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="	https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.0.beta.6.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.6.1/less.js" type="text/javascript"></script>
+	<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
